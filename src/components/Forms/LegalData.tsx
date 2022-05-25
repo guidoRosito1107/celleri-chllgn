@@ -87,7 +87,7 @@ function LegalDataForm (props: IProps) {
             navigate('/bankData');
         } else {
             if (!validConditions(question1Values)) {setShowError1(true)} else {setShowError1(false)};
-            if (question2Values !== "Si") {setShowError2(true)} else {setShowError2(false)};
+            if (question2Values === "") {setShowError2(true)} else {setShowError2(false)};
             if (question3Values !== "Si") {setShowError3(true)} else {setShowError3(false)};
             e.preventDefault();
         }        
