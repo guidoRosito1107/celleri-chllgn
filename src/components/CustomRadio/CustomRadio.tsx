@@ -27,7 +27,7 @@ function CustomRadio (props: IProps) {
                 ))
             }                   
             </div>
-            { props.showError ? <p className={errorTextStyle}>Debe seleccionar sí para continuar</p> : null} 
+            { props.showError ? <p className={errorTextStyle}>{props.errorMessage}</p> : null} 
         </div>
     );
 }

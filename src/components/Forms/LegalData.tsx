@@ -104,11 +104,11 @@ function LegalDataForm (props: IProps) {
             </div>
             <div>
                 <p className="mb-2 text-fontGray font-semibold text-lg ">{question2}</p>
-                <CustomRadio id="radio1" onChange={handleRadio} itemsList={["Si", "No"]} showError={showError2} value={question2Values}/>
+                <CustomRadio id="radio1" onChange={handleRadio} itemsList={["Si", "No"]} showError={showError2} value={question2Values} errorMessage="Debe seleccionar uno de los dos"/>
             </div>
             <div>
                 <p className="mb-2 text-fontGray font-semibold text-lg ">{question3}</p>
-                <CustomRadio id="radio2" onChange={handleRadio} itemsList={["Si", "No"]} showError={showError3} value={question3Values}/>
+                <CustomRadio id="radio2" onChange={handleRadio} itemsList={["Si", "No"]} showError={showError3} value={question3Values} errorMessage="Debe seleccionar Sí para continuar"/>
             </div>
             <div className="mt-4 flex justify-center">
                 <CustomButton submit={true} buttonText="Próximo paso" iconName="rightArrowIcon" />
