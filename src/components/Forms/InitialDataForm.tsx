@@ -99,13 +99,6 @@ function InitialDataForm (props: IProps) {
                     itemsList={["DNI", "Pasaporte", "LC", "LE"]}
                     placeholder="Tipo de Documento" 
                 />
-                {/* <CustomSelect 
-                    id="docType" 
-                    value={formik.values.docType} 
-                    onChange={formik.handleChange} 
-                    placeholder="Tipo de Documento"
-                    icon={idIcon()} 
-                    itemsList={["DNI", "Pasaporte", "LC", "LE"]}/> */}
                 <CustomInput 
                     id="docNumber" 
                     value={formik.values.docNumber} 

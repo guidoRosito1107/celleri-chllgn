@@ -13,7 +13,7 @@ npm start
 
 ## Estructura de Carpetas
 
- -> src
+ 1. src.
     --> components (expone los componetes usados en toda la aplicación)
         --> CustomButton
         --> CustomCheckbox 

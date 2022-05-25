@@ -10,6 +10,8 @@ import * as Yup from "yup";
 import { cuitOrCuilRegEx, invalidCuitOrCuil, requiredErrorMessage } from "../../utils/ValidationResources";
 import Logo from "../Logo/Logo";
 import { navigateToCorrespondingStep } from "../../utils/functions";
+import CustomSelect2 from "../CustomSelect/CustomSelect2";
+import { countries } from "../../utils/SelectsData";
 
 interface IProps {
     formStep: number,
@@ -235,39 +237,39 @@ function PersonalDataForm (props: IProps) {
                         upperText="Cuil/Cuit" 
                         disabled={disableFields} 
                     /> 
-                    <CustomInputPersData 
+                    <CustomSelect2 
                         id="gender" 
                         value={formik.values.gender} 
                         onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur} 
                         showError={formik.touched.gender && (formik.errors.gender !== undefined)}
-                        errorMessage={formik.errors.gender}                        
-                        onBlur={formik.handleBlur}
-                        type="text" 
-                        upperText="Género"  
-                        disabled={false}
-                    /> 
-                    <CustomInputPersData 
+                        errorMessage={formik.errors.gender} 
+                        itemsList={["Femenino", "Masculino", "Otro"]}
+                        placeholder="" 
+                        upperText="Género"
+                    />
+                    <CustomSelect2 
                         id="nationality" 
                         value={formik.values.nationality} 
                         onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur} 
                         showError={formik.touched.nationality && (formik.errors.nationality !== undefined)}
-                        errorMessage={formik.errors.nationality}                        
-                        onBlur={formik.handleBlur}
-                        type="text" 
-                        upperText="Nacionalidad"  
-                        disabled={false}
-                    /> 
-                    <CustomInputPersData 
+                        errorMessage={formik.errors.nationality} 
+                        itemsList={countries}
+                        placeholder="" 
+                        upperText="Nacionalidad"
+                    />
+                    <CustomSelect2 
                         id="birthCountry" 
                         value={formik.values.birthCountry} 
                         onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur} 
                         showError={formik.touched.birthCountry && (formik.errors.birthCountry !== undefined)}
-                        errorMessage={formik.errors.birthCountry}                        
-                        onBlur={formik.handleBlur}
-                        type="text" 
-                        upperText="País Nacimiento" 
-                        disabled={false} 
-                    /> 
+                        errorMessage={formik.errors.birthCountry} 
+                        itemsList={countries}
+                        placeholder="" 
+                        upperText="País de Nacimiento"
+                    />
                     <CustomInputPersData 
                         id="birthDate" 
                         value={formik.values.birthDate} 

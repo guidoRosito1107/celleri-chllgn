@@ -25,7 +25,6 @@ function LegalDataForm (props: IProps) {
         const retrievedData = localStorage.getItem('legalData');
         if (retrievedData) {
             const parsedData: ICostumerLegalData = JSON.parse(retrievedData);
-            console.log(parsedData);
             return parsedData.question1Values;
         } else {
             return [false, false, false, false];
@@ -83,7 +82,7 @@ function LegalDataForm (props: IProps) {
     }
 
     const handleSubmit = (e: any) => {
-        if (validConditions(question1Values) && question2Values === "Si" && question3Values === "Si") {
+        if (validConditions(question1Values) && question2Values !== "" && question3Values === "Si") {
             localStorage.setItem("legalData", JSON.stringify({question1Values: question1Values, question2Values: question2Values, question3Values: question3Values}));        
             navigate('/bankData');
         } else {
