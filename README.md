@@ -13,10 +13,10 @@ npm start
 
 ## Estructura de Carpetas
 
- 1. src.
     --> components (expone los componetes usados en toda la aplicación)
-        --> CustomButton
-        --> CustomCheckbox 
+    
+        --> CustomButton                
+        --> CustomCheckbox    
         --> CustomInput (2 inputs custom - Debido a la existencias de dos estilos diferentes para distinas situaciones)
         --> CustomRadio 
         --> CustomSelect
@@ -35,6 +35,7 @@ npm start
             --> <StartProofOfLife>
             --> <StartStyles>
         --> Logo
+        
     --> utils
         --> APIResources (CONTIENE LOS RECURSOS QUE INVOLUCREN A LA API DE AFIP)
         --> DataTypes (CONTIENE LOS TIPOS DE DATOS DISEÑADOS PARA TRABAJAR CON LOS FORMS)
