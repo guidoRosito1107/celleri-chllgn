@@ -7,7 +7,7 @@ import { editIcon, userIcon } from "../../utils/icons";
 import CustomButton from "../CustomButton/CustomButton";
 import CustomInputPersData from "../CustomInput/CustomInputPersData";
 import * as Yup from "yup";
-import { cuitOrCuilRegEx, invalidCuitOrCuil, requiredErrorMessage } from "../../utils/ValidationResources";
+import { cuitOrCuilRegEx, invalidBirthCountry, invalidCuitOrCuil, invalidFirstName, invalidGender, invalidLastName, invalidNationality, invalidSecondName, requiredErrorMessage } from "../../utils/ValidationResources";
 import Logo from "../Logo/Logo";
 import { navigateToCorrespondingStep } from "../../utils/functions";
 import CustomSelect2 from "../CustomSelect/CustomSelect2";
@@ -52,13 +52,13 @@ function PersonalDataForm (props: IProps) {
     const formik = useFormik({
         initialValues: (retrievedValues || emptyCostumerData),
         validationSchema: Yup.object({
-            firstName: Yup.string().max(20).required(requiredErrorMessage),
-            secondName: Yup.string().max(50).required(requiredErrorMessage),
-            lastName: Yup.string().max(20).required(requiredErrorMessage),
+            firstName: Yup.string().max(20, invalidFirstName).required(requiredErrorMessage),
+            secondName: Yup.string().max(50, invalidSecondName).required(requiredErrorMessage),
+            lastName: Yup.string().max(20, invalidLastName).required(requiredErrorMessage),
             cuilOrCuit: Yup.string().matches(cuitOrCuilRegEx, invalidCuitOrCuil).required(requiredErrorMessage),
-            gender: Yup.string().max(20).required(requiredErrorMessage),
-            nationality: Yup.string().max(20).required(requiredErrorMessage),
-            birthCountry: Yup.string().max(20).required(requiredErrorMessage),
+            gender: Yup.string().max(20).oneOf(["Femenino", "Masculino", "Otro"], invalidGender).required(requiredErrorMessage),
+            nationality: Yup.string().oneOf(countries, invalidNationality).max(50).required(requiredErrorMessage),
+            birthCountry: Yup.string().oneOf(countries, invalidBirthCountry).max(50).required(requiredErrorMessage),
             birthDate: Yup.string().required(requiredErrorMessage),
         }),
         onSubmit: (values) => {
